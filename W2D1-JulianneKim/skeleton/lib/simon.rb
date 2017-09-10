@@ -22,7 +22,7 @@ class Simon
     show_sequence
     require_sequence
 
-    !@game_over
+    unless @game_over
       round_success_message
       @sequence_length += 1
     end
@@ -41,7 +41,7 @@ class Simon
       user_color = gets.chomp
       if color != user_color[0]
         @game_over = true
-        break 
+        break
       end
     end
   end
