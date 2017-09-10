@@ -32,6 +32,8 @@ class Simon
     add_random_color
     @seq.each do |color|
       puts color
+      sleep 1
+      system("clear")
     end
   end
 
@@ -39,7 +41,7 @@ class Simon
     puts "Please repeat the sequence"
     @seq.each do |color|
       user_color = gets.chomp
-      if color != user_color[0]
+      if color != user_color
         @game_over = true
         break
       end
@@ -47,12 +49,11 @@ class Simon
   end
 
   def add_random_color
-    colors = %w(red blue yellow green)
-    @seq << colors.sample
+    @seq << COLORS.sample
   end
 
   def round_success_message
-    puts "You passed the round!"
+    puts "You passed round #{@sequence_length}!"
   end
 
   def game_over_message
